@@ -1,0 +1,17 @@
+{
+  "name": "520",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JakeR",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "method-override": "^2.3.9",
+    "mongojs": "^2.4.0",
+    "morgan": "^1.8.1"
+  }
+}
