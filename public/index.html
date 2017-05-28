@@ -31,46 +31,48 @@
                
                 <div class="container">
                     <h1> GameWeb </h1> 
-                    <div class="row"  >
+                    <div class="row">
                         <div class="jumbotron text-center" id="listContainer" style="display:inline-block; vertical-align:top" >
-                            <h3> Your web: <span class="label label-info">{{ titles.length}}</span></h3>
+                            <h2> Your web: <span class="label label-info">{{ titles.length}}</span></h2>
 
-                            <!-- Loop over each title in the titles. Puta delete checkbox beside each title -->
+                            <!-- Display the list of Titles in the User Database -->
                             <div class="checkbox" ng-repeat="title in titles">
-                                <label ng-hide="!showme">
-                                    <input type = "checkbox" ng-click="deleteTitle(title._id)">
-                                </label>
-                                <label>
+                                <div ng-hide="!showme">
+                                    <input type = "checkbox" id="gameCheckBox" ng-click="deleteTitle(title._id)">
+                                </div>
+                                <label id="gameTitle">
                                     {{title.title}} <!-- Display the list of games associated with the user --> 
                                 </label>
                             </div>
+
+                            <!-- Add Titles to the List --> 
+                            <div id="title-form" class="row" ng-hide="!showme" >
+                                <!-- Fancy bootstreap rows and columns -->
+                                <div class="col text-center">
+                                    <form>
+                                        <div class="form-group">
+                                            <!-- Binding form value to formData.title in angular. -->
+                                            
+                                            <button type="submit" style="float: right" class="btn btn-primary btn-lg" ng-click="createTitle()"> Add </button>
+                                            <div style="overflow: hidden; padding-right: .5em;">
+                                                <input type="text" id="textInputSpace" style="width: 100%;" size="25"   class="form-control input-lg text-center" placeholder="Enter game title here" ng-model="formData.title">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         <span id="fadeZone">   
                             <input type = "image" src="./img/gear.png" ng-click="showme=!showme" id="optionGear">
                         </span>
-
-                        </div>
+                        </div> <!-- End of Your Web block -->
+                        
                         <div class="jumbotron text-center" id="listContainer"  style="display:inline-block; vertical-align:top">
                             <h3> Web connections: </h3>
                         </div>
 
 
                     </div> <!-- End of class row -->
-
-                <!-- Set up the input form to create game titles --> 
-                <div id="title-form" class="row">
-                    <!-- Fancy bootstreap rows and columns -->
-                    <div class="col-sm-8 col-sm-offset-2 text-center">
-                        <form>
-                            <div class="form-group">
-                                <!-- Binding form value to formData.title in angular. -->
-                                <input type="text" class="form-control input-lg text-center" placeholder="Enter game title here" ng-model="formData.title">
-                            </div>
-
-
-                            <button type="submit" class="btn btn-primary btn-lg" ng-click="createTitle()"> Add </button>
-                        </form>
-                    </div>
-                </div>
             </div>
 
             </body>
