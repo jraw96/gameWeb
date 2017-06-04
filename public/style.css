@@ -3,29 +3,43 @@
 
 /* Buttons that fade in and out */
 #fadeZone{
-    opacity: 0.6;
-    transition: opacity 1s ease-in-out;
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -webkit-transition: opacity 1s ease-in-out;
 }
 #fadeZone:hover {
     opacity: 1.0;
-    transition: opacity .55s ease-in-out;
+    transition: opacity .1s ease-in-out;
     -moz-transition: opacity .55s ease-in-out;
     -webkit-transition: opacity .55s ease-in-out;
 }
 
 /*Containers */
+
+#blockList{
+    padding-right: 10px;
+}
 #listContainer{
-    padding-top:0px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 30px;
+    padding-right: 30px;
     position:relative;
 } 
+
+#searchBar{
+    padding-top:0px;
+    padding-bottom:20px;
+}
+
 #title-form{
     padding-left: 0px;
     padding-right: 0px;
 }
 #textInputSpace{
-    padding-left: 0px;
+    padding-top: 10px;
+    padding-left: 10px;
     padding-right: 0px;
     width:200px;
 
@@ -34,7 +48,7 @@
     
 }
 
-/*Make buttons go to top right of container */
+/* Buttons */
  #editButton {
      margin-top: 1px;
      margin-right: 2px;
@@ -53,4 +67,24 @@
      top:0;
      right:0;
  }
+
+ #plusButtonSpace{
+
+    position:"absolute";
+    display: block;
+      
+ }
+
+ #plusButton{
+     position:relative;
+     padding-left: 5px;
+     padding-right: 0px;
+     padding-top: 0px;
+
+     display:inline-block;
+     
+     font-size: 40px;
+     color:#D0D0D0;
+ }
+
 

@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-        <title> GameWeb </title>
+        <title> WebFive</title>
 
         <!-- Bootstrap Magic -->
         <!-- SCROLLS -->
@@ -24,58 +24,58 @@
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
             <script src="controller.js"></script>
 
+            <!-- Favicon stuff -->
+            <link rel="icon" href="../favicon/favicon.ico" type="image/x-icon" />
+
 
             <!-- Set the main controller -->
-            <body ng-controller="mainController">
-
-               
+            <body ng-controller="mainController">     
                 <div class="container">
-                    <h1> GameWeb </h1> 
-                    <div class="row">
-                        <div class="jumbotron text-center" id="listContainer" style="display:inline-block; vertical-align:top" >
-                            <h2> Your web: <span class="label label-info">{{ titles.length}}</span></h2>
+                    <h1> WebFive </h1> 
+                    <div class = "col-sm-4">
+                        <div class="row">
+                         <div class="well" id="listContainer" style="float:left">
+                            <h2 align="left"> Random list</h2>
 
-                            <!-- Display the list of Titles in the User Database -->
-                            <div class="checkbox" ng-repeat="title in titles">
-                                <div ng-hide="!showme">
-                                    <input type = "checkbox" id="gameCheckBox" ng-click="deleteTitle(title._id)">
-                                </div>
-                                <label id="gameTitle">
-                                    {{title.title}} <!-- Display the list of games associated with the user --> 
-                                </label>
+                            <!-- Display lists belonging to the User-->
+                            <div class="form-group"  ng-repeat="title in titles" position="relative" style=" vertical-align: middle;" >                            
+                                   <label id="listEntries" align="left">  
+                                       {{title.title}} 
+                                    </label> 
+                                   <button type="image" class="close" aria-label="Close" style="float:right" ng-hide="!showme" ng-click="deleteTitle(title._id)">
+                                       <span aria-hidden="true">&times;</span>
+                                   </button>                 
                             </div>
 
                             <!-- Add Titles to the List --> 
                             <div id="title-form" class="row" ng-hide="!showme" >
-                                <!-- Fancy bootstreap rows and columns -->
                                 <div class="col text-center">
-                                    <form>
-                                        <div class="form-group">
-                                            <!-- Binding form value to formData.title in angular. -->
-                                            
-                                            <button type="submit" style="float: right" class="btn btn-primary btn-lg" ng-click="createTitle()"> Add </button>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" style="float:right" ng-click="createTitle()"> Add </button>
                                             <div style="overflow: hidden; padding-right: .5em;">
-                                                <input type="text" id="textInputSpace" style="width: 100%;" size="25"   class="form-control input-lg text-center" placeholder="Enter game title here" ng-model="formData.title">
+                                                <input type="text" class="form-control" id="textInputSpace" size="25" placeholder="Enter game title here" ng-model="formData.title">
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
 
                         <span id="fadeZone">   
                             <input type = "image" src="./img/gear.png" ng-click="showme=!showme" id="optionGear">
                         </span>
-                        </div> <!-- End of Your Web block -->
-                        
-                        <div class="jumbotron text-center" id="listContainer"  style="display:inline-block; vertical-align:top">
-                            <h3> Web connections: </h3>
+                        </div> <!-- End of a list blocks-->
+
+                        <div class = "border-left-0" id="plusButtonSpace">                         
+                            <span class="glyphicon glyphicon-plus" id="plusButton"></span>
+                        </div>       
+
+                        <div class="well" style="position:relative; float:left; ">
+                            <h3> Search by: </h3>
+                                <input type="text" id="textInputSpace" style=" height: 20px" size="35s" class="form-control" placeholder="i.e: Overwatch" ng-model="formData.searchWord">
                         </div>
-
-
-                    </div> <!-- End of class row -->
+                        </div>
+                    </div><!-- End of column -->
             </div>
-
-            </body>
+        </body>
 </html>
 
 

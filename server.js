@@ -61,6 +61,19 @@ app.post('/api/titles', function(req,res){
     })     
 })
 
+// Create a new list in the data base
+app.post('/api/list', function(req,res){
+    db.myFiveLists.save({
+        listTitle: req.body.listTitle,
+        listEntries: req.body.listEntries
+    }, function(err, data){
+        if(err){res.send(err)}
+        else{
+            res.json(data)
+        }
+    })
+})
+
 // Be able to send a delete request 
 app.delete('/api/titles/:title_id', function(req,res){ 
     console.log("Trying to delete: " + req.params.id)

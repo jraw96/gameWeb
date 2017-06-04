@@ -6,3 +6,8 @@ var gameTitle = mongoose.model('gameTitle', {
     title: String,
     dateAdded: String
 })
+
+module.exports = gameTitle
+
+
+

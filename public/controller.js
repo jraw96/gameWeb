@@ -27,6 +27,18 @@ function mainController($scope, $http){ // The $scope variable is the glue betwe
        })
    }
 
+   //Create new my five list
+   console.log("Creating a new list")
+   $scope.createList = function(){
+       $http.post('/api/list').success(function(data){
+           $scope.listTitle = data.listTitle
+           $scope.listEntries = data.listEntries
+           console.log("Here is data: " + data)
+       }).error(function(err){
+           console.log(err)
+       })
+   }
+
    $scope.deleteTitle = function(id){ // The delete button will use a checkbox to mark titles to be deleted. 
        $http.delete('/api/titles/' + id).success(function(data){
            $scope.titles = data // Update the list of game titles, with the recently deleted title no longer there. 
